@@ -6,8 +6,8 @@ Ce Readme.md est à destination des futurs repreneurs du site-web Vide Grenier e
 
 1. Créez un VirtualHost pointant vers le dossier /public du site web (Apache)
 - Ajouter dans votre httpd-vhosts.conf 
-`Listen 8088
 
+` Listen 8088
 <VirtualHost *:8088>
 
     ServerName VideGrenier
