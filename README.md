@@ -5,22 +5,6 @@ Ce Readme.md est à destination des futurs repreneurs du site-web Vide Grenier e
 ## Mise en place du projet back-end
 
 1. Créez un VirtualHost pointant vers le dossier /public du site web (Apache)
-- dans httpd-vhosts.conf ajouter 
-`Listen 8088
-
-<VirtualHost *:8088>
-
-    ServerName VideGrenier
-    DocumentRoot *chemin absolu vers /public* 
-    
-	<Directory *chemin absolu vers /public*>
-        Options Indexes FollowSymLinks Includes ExecCGI
-        AllowOverride All
-        Require all granted
-    </Directory>
-	
-</VirtualHost>`
-
 2. Importez la base de données MySQL (sql/import.sql)
 3. Connectez le projet et la base de données via les fichiers de configuration
 4. Lancez la commande `composer install` pour les dépendances
@@ -28,7 +12,6 @@ Ce Readme.md est à destination des futurs repreneurs du site-web Vide Grenier e
 ## Mise en place du projet front-end
 1. Lancez la commande `npm install` pour installer node-sass
 2. Lancez la commande `npm run watch` pour compiler les fichiers SCSS
-
 
 ## Routing
 
