@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:lts
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./sql/import.sql:/docker-entrypoint-initdb.d/import.sql
+    restart: always
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./docker/mysql/.env.dev
+
+
+  website:
+    depends_on:
+      - db
+    image: videgrenier-app
+    ports:
+      - "8088:8088"
+    restart: always
+
+
+volumes:
+  db_data:
