@@ -1,6 +1,5 @@
 node_modules
 docker
-vendor
 composer.lock
 package-lock.json
 .dockerignore
