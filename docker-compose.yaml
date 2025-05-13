@@ -1,26 +1,36 @@
-version: '3'
-
 services:
   db:
     image: mysql:lts
+    env_file:
+      - ./docker/mysql/.env
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data_dev:/var/lib/mysql
       - ./sql/import.sql:/docker-entrypoint-initdb.d/import.sql
     restart: always
     ports:
-      - "3306:3306"
-    env_file:
-      - ./docker/mysql/.env.dev
+      - "${DB_PORT}:${DB_PORT}"
+
+    container_name: videgrenier-db-${APP_ENV}
 
 
   website:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: dockerfile
+      args:
+        APACHE_VHOST: ${APP_ENV}
+        PORT: ${APACHE_PORT}
     depends_on:
       - db
     image: videgrenier-app
     ports:
-      - "8088:8088"
+      - "${APACHE_PORT}:${APACHE_PORT}"
     restart: always
+    container_name: videgrenier-web-${APP_ENV}
 
 
 volumes:
-  db_data:
+  db_data_dev:
+ 

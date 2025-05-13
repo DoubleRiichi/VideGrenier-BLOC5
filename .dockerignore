@@ -1,7 +1,0 @@
-node_modules
-composer.lock
-package-lock.json
-.dockerignore
-dockerfile
-.env.dev
-.env.prod

@@ -1,2 +1,2 @@
-.env.dev
-.env.prog
+.env*
+!.env.example
