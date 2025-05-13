@@ -9,7 +9,10 @@ jobs:
   build-and-push:
     name: Build & Push Docker image to GHCR
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
+    
     env:
       APACHE_VHOST: dev
       APACHE_PORT: 8080
