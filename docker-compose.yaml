@@ -14,17 +14,19 @@ services:
 
 
   website:
+    image: ghcr.io/doubleriichi/videgrenier-app:latest
     env_file:
       - .env
-    build:
-      context: .
-      dockerfile: dockerfile
-      args:
-        APACHE_VHOST: ${APP_ENV}
-        PORT: ${APACHE_PORT}
+      
+    # build:
+    #   context: .
+    #   dockerfile: dockerfile
+    #   args:
+    #     APACHE_VHOST: ${APP_ENV}
+    #     PORT: ${APACHE_PORT}
+
     depends_on:
       - db
-    image: videgrenier-app
     ports:
       - "${APACHE_PORT}:${APACHE_PORT}"
     restart: always
