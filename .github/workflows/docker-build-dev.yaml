@@ -41,11 +41,11 @@ jobs:
 
       - name: Build and push Docker image to GHCR
         run: |
-          IMAGE_ID=ghcr.io/doubleriichi/videgrenier-app
+          IMAGE_ID=ghcr.io/doubleriichi/videgrenier-app-$APP_ENV
           docker build \
             --build-arg APACHE_VHOST=$APACHE_VHOST \
             --build-arg PORT=$APACHE_PORT \
-            -t $IMAGE_ID:$APP_ENV \  
+            -t $IMAGE_ID:latest \  
             -f dockerfile .
           
-          docker push $IMAGE_ID:$APP_ENV
+          docker push $IMAGE_ID:latest
