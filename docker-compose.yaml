@@ -2,7 +2,7 @@ services:
   db:
     image: mysql:lts
     env_file:
-      - ./docker/mysql/{APP_ENV}.env
+      - ./docker/mysql/.${APP_ENV}.env
     volumes:
       - db_data_dev:/var/lib/mysql
       - ./sql/import.sql:/docker-entrypoint-initdb.d/import.sql
