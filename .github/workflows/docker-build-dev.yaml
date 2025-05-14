@@ -9,6 +9,7 @@ jobs:
   build-and-push:
     name: Build & Push Docker image to GHCR
     runs-on: ubuntu-latest
+    environment: Dev
     permissions:
       contents: read
       packages: write
