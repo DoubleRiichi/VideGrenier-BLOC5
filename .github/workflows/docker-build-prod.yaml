@@ -46,7 +46,7 @@ jobs:
           docker build \
             --build-arg APACHE_VHOST=$APACHE_VHOST \
             --build-arg PORT=$APACHE_PORT \
-            -t $IMAGE_ID:$APP_ENV-latest \
+            -t $IMAGE_ID:$APP_ENV \
             -f dockerfile .
           
-          docker push $IMAGE_ID:latest
+          docker push $IMAGE_ID:$APP_ENV
