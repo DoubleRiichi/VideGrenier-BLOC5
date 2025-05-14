@@ -2,7 +2,7 @@ services:
   db:
     image: mysql:lts
     env_file:
-      - ./docker/mysql/.env
+      - ./docker/mysql/{APP_ENV}.env
     volumes:
       - db_data_dev:/var/lib/mysql
       - ./sql/import.sql:/docker-entrypoint-initdb.d/import.sql
@@ -14,9 +14,9 @@ services:
 
 
   website:
-    image: ghcr.io/doubleriichi/videgrenier-app:latest
-    env_file:
-      - .env
+    image: ghcr.io/doubleriichi/videgrenier-app:${APP_ENV}:latest
+    # env_file:
+    #   - .env
       
     # build:
     #   context: .
