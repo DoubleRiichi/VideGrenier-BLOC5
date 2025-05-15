@@ -1,0 +1,1 @@
+docker volume rm videgrenier-bloc5-dev_db_data_dev
