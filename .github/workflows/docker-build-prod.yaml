@@ -16,8 +16,8 @@ jobs:
     
     env:
       APACHE_VHOST: prod
-      APACHE_PORT: 8080
-      DB_PORT: 3306
+      APACHE_PORT: 8081
+      DB_PORT: 3308
       APP_ENV: prod
 
     steps:
@@ -39,8 +39,8 @@ jobs:
           echo "DB_USER=${{ secrets.DB_USER }}" >> .env
           echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
-          echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
-          
+          echo $DB_PORT >> .env
+
       - name: Build and push Docker image to GHCR
         run: |
           IMAGE_ID=ghcr.io/doubleriichi/videgrenier-app
