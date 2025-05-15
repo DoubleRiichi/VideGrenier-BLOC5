@@ -14,6 +14,7 @@ Config::init();
 class Config
 {
     public static $DB_HOST;
+    public static $DB_PORT;
     public static $DB_NAME;
     public static $DB_USER;
     public static $DB_PASSWORD;
@@ -26,6 +27,7 @@ class Config
         $dotenv->safeLoad();
 
         self::$DB_HOST = $_ENV['DB_HOST'] ?? 'localhost';
+        self::$DB_HOST = $_ENV['DB_PORT'] ?? '3306';
         self::$DB_NAME = $_ENV['DB_NAME'] ?? 'defaultdb';
         self::$DB_USER = $_ENV['DB_USER'] ?? 'root';
         self::$DB_PASSWORD = $_ENV['DB_PASSWORD'] ?? '';
