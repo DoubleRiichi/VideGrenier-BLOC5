@@ -28,9 +28,9 @@ class Config
 
         self::$DB_HOST = $_ENV['DB_HOST'] ?? 'localhost';
         self::$DB_HOST = $_ENV['DB_PORT'] ?? '3306';
-        self::$DB_NAME = $_ENV['DB_NAME'] ?? 'defaultdb';
-        self::$DB_USER = $_ENV['DB_USER'] ?? 'root';
-        self::$DB_PASSWORD = $_ENV['DB_PASSWORD'] ?? '';
+        self::$DB_NAME = $_ENV['DB_NAME'] ?? 'videgrenierenligne-dev';
+        self::$DB_USER = $_ENV['DB_USER'] ?? 'default_user';
+        self::$DB_PASSWORD = $_ENV['DB_PASSWORD'] ?? 'default_password';
         self::$SHOW_ERRORS = filter_var($_ENV['SHOW_ERRORS'] ?? true, FILTER_VALIDATE_BOOLEAN);
     }
 }
