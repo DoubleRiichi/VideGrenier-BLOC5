@@ -8,7 +8,7 @@ services:
       - ./sql/import.sql:/docker-entrypoint-initdb.d/import.sql
     restart: always
     ports:
-      - "${DB_PORT}:3306" # port1:port2 means forward port1 to port2!!!
+      - "${DB_PORT}:3306" 
 
     container_name: videgrenier-db-${APP_ENV}
 

@@ -18,7 +18,7 @@ jobs:
     env:
       APACHE_VHOST: prod
       APACHE_PORT: 8081
-      DB_PORT: 3308
+      DB_PORT: 3306 #Le conteneur mysql utilise le 3306 par défaut, pas besoin de le changer même si deux conteneurs utilise le port
       APP_ENV: prod
 
     steps:
