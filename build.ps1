@@ -1,0 +1,1 @@
+docker-compose -p videgrenier-bloc5-dev -f docker-compose.yaml up --build --force-recreate
