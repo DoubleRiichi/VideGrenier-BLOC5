@@ -2,7 +2,6 @@
 
 namespace Core;
 
-use App\Config;
 /**
  * Error and exception handler
  *
@@ -44,7 +43,7 @@ class Error
         }
         http_response_code($code);
 
-        if (Config::$SHOW_ERRORS) {
+        if (\App\Config::SHOW_ERRORS) {
             echo "<h1>Fatal error</h1>";
             echo "<p>Uncaught exception: '" . get_class($exception) . "'</p>";
             echo "<p>Message: '" . $exception->getMessage() . "'</p>";
