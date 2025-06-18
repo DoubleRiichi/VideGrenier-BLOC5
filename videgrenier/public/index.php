@@ -22,6 +22,18 @@ set_error_handler('Core\Error::errorHandler');
 set_exception_handler('Core\Error::exceptionHandler');
 
 
+if(!isset($_SESSION["user"]) && isset($_COOKIE["rememberMe"])) {
+    $user = \App\Models\User::getById($_COOKIE["rememberMe"]);
+
+    if($user) {
+        $_SESSION["user"] = array(
+            "id" => $user["id"],
+            "username" => $user["username"] 
+        );
+    }
+}
+
+
 /**
  * Routing
  */
