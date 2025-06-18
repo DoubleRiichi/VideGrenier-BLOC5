@@ -87,6 +87,13 @@ class User extends \Core\Controller
                 "salt" => $salt
             ]);
 
+            $_SESSION['user'] = array(
+                'id' => $userID,
+                'username' => $data['username'],
+            );
+
+            header("Location: /");
+            
             return $userID;
 
         } catch (Exception $ex) {
