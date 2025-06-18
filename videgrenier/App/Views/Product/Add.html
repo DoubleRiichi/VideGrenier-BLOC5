@@ -16,6 +16,19 @@
     <!-- ///channel -->
 
     <div class="container mt-30">
+        
+        {# Error Message Block #}
+        {% if errors is defined and errors is not empty %}
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                {% for error in errors %}
+
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
         <form action="" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-6">
@@ -52,9 +65,7 @@
                     </div>
 
                     <div class="u-area mt-small">
-                        <form action="#" method="post">
                             <button name="submit" class="btn btn-primary u-btn">Valider</button>
-                        </form>
                     </div>
                     <div class="u-terms">
                         <p>En soumettant votre article vous acceptez les <a href="#">conditions générales</a> de Vide Grenier en
