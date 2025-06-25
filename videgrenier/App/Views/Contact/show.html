@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+
+
+{% block body %}
+<div class="container-fluid bg-image">
+    <div class="row">
+        <div class="-wraper">
+            <div class="login-window">
+                <div class="l-head">
+                    Contactez-nous
+                </div>
+                <div class="l-form">
+                    <form action="/contact-submit" method="post">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="sample@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Votre message..."></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <button type="submit" name="submit" class="btn btn-cv1">Envoyer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
