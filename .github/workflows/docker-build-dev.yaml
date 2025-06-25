@@ -24,6 +24,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install PHP and Composer
+        run: |
+          sudo apt update
+          sudo apt install -y php php-mbstring php-xml php-curl unzip
+          curl -sS https://getcomposer.org/installer | php
+        working-directory: ./videgrenier
+
+      - name: Install PHP dependencies
+        run: php ../composer.phar install
+        working-directory: ./videgrenier
+
+      - name: Run PHPUnit tests
+        run: ./vendor/bin/phpunit tests/
+        working-directory: ./videgrenier
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
