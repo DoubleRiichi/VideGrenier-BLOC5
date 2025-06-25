@@ -108,6 +108,8 @@ class User extends \Core\Controller
                 throw new Exception('TODO');
             }
 
+
+
             $user = \App\Models\User::getByLogin($data['email']);
 
             if (Hash::generate($data['password'], $user['salt']) !== $user['password']) {
@@ -122,6 +124,13 @@ class User extends \Core\Controller
                 'id' => $user['id'],
                 'username' => $user['username'],
             );
+
+            if(isset($data["rememberMe"])) {
+                if($data["rememberMe"] == true) {
+        
+                    setcookie("rememberMe", $user["id"], time()+60*60*24*30); // expire in 30 days
+                }
+            }
 
             return true;
 
@@ -150,13 +159,9 @@ class User extends \Core\Controller
 
         $_SESSION = array();
 
-        if (ini_get("session.use_cookies")) {
-            $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
-                $params["path"], $params["domain"],
-                $params["secure"], $params["httponly"]
-            );
-        }
+       
+        setcookie('rememberMe', '', time() - 3600);
+    
 
         session_destroy();
 
