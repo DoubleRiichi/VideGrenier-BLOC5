@@ -18,7 +18,7 @@ class Config
     public static $DB_NAME;
     public static $DB_USER;
     public static $DB_PASSWORD;
-    public static $SHOW_ERRORS;
+    public static $SHOW_ERRORS = true;
 
     public static function init()
     {
@@ -32,5 +32,6 @@ class Config
         self::$DB_USER = $_ENV['DB_USER'] ?? 'default_user';
         self::$DB_PASSWORD = $_ENV['DB_PASSWORD'] ?? 'default_password';
         self::$SHOW_ERRORS = filter_var($_ENV['SHOW_ERRORS'] ?? true, FILTER_VALIDATE_BOOLEAN);
+
     }
 }

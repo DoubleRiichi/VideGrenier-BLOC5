@@ -12,7 +12,6 @@ use App\Config;
  */
 abstract class Model
 {
-
     /**
      * Get the PDO database connection
      *
@@ -20,10 +19,13 @@ abstract class Model
      */
     protected static function getDB()
     {
+        // Initialiser la configuration avant d'utiliser les variables
+        Config::init();
+
         static $db = null;
 
         if ($db === null) {
-            $dsn = 'mysql:host=' . Config::$DB_HOST . ";port=" . Config::$DB_PORT . ';dbname=' . Config::$DB_NAME . ';charset=utf8';
+            $dsn = 'mysql:host=' . Config::$DB_HOST . ';dbname=' . Config::$DB_NAME . ';charset=utf8';
             $db = new PDO($dsn, Config::$DB_USER, Config::$DB_PASSWORD);
 
             // Throw an Exception when an error occurs

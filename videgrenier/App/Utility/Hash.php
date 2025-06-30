@@ -11,6 +11,10 @@ class Hash {
      * Génère et retourne un hash
      */
     public static function generate($string, $salt = "") {
+        if($string == null || strlen($string) == 0) {
+            return null;
+        }
+        
         return(hash("sha256", $string . $salt));
     }
 
