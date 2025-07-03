@@ -22,6 +22,7 @@ set_error_handler('Core\Error::errorHandler');
 set_exception_handler('Core\Error::exceptionHandler');
 
 
+
 if(!isset($_SESSION["user"]) && isset($_COOKIE["rememberMe"])) {
     $user = \App\Models\User::getById($_COOKIE["rememberMe"]);
 
@@ -42,6 +43,8 @@ $router = new Core\Router();
 // Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('login', ['controller' => 'User', 'action' => 'login']);
+$router->add('contact',
+     ['controller' => "Contact", 'action' => 'show']);
 $router->add('register', ['controller' => 'User', 'action' => 'register']);
 $router->add('logout', ['controller' => 'User', 'action' => 'logout', 'private' => true]);
 $router->add('account', ['controller' => 'User', 'action' => 'account', 'private' => true]);
